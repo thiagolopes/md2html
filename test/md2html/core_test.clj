@@ -17,10 +17,6 @@
          [:html
           head
           (body [[:h1 "This is a head"] [:p "-item one"]])])))
-  (testing "test-style"
-    (is (=
-         (style {:display "flex" :flex-wrap "wrap"})
-         "display:flex;flex-wrap:wrap")))
   (testing "footer"
     (is (=
          (footer "NOW")
@@ -29,6 +25,3 @@
     (is (=
          (body [[:h1 "This is a head"] [:p "-item one"]])
          [:body {:class "container"} [[:h1 "This is a head"] [:p "-item one"]]]))))
-
-
-(run-tests)
