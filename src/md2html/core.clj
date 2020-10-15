@@ -31,6 +31,8 @@
   (let [new-file (change-file-format file-name :html)
         markdown-content (md->hiccup (slurp file-name))
         attribute-bootstrap {:class "container"}
-        html-footer (html-footer (str (java.util.Date.)))
-        html [:html base-head (html-body attribute-bootstrap markdown-content attribute-bootstrap)]]
-    (spit new-file (hiccup.core/html html))))
+        html-footer (html-footer (str (java.util.Date.)))]
+    (spit new-file
+          (hiccup.core/html
+           [:html base-head
+            (html-body attribute-bootstrap markdown-content html-footer)]))))
