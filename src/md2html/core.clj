@@ -9,11 +9,8 @@
 (def bootstrap-css "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
 (def bootstrap-js "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
 (def base-head
-  [:head
-   (first (hiccup.page/include-css
-           bootstrap-css))
-   (first (hiccup.page/include-js
-           bootstrap-js))])
+  [:head (map first (list (hiccup.page/include-css bootstrap-css)
+                          (hiccup.page/include-js bootstrap-js)))])
 
 (defn html-footer [time]
   [:footer [:p (str "Generate at: " time)]])
