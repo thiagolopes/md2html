@@ -3,14 +3,14 @@
   (:use markdown.core)
   (:require [clojure.string :as str]
             [hiccup-bridge.core :as hicv]
-            [hiccup.core]
-            [hiccup.page]))
+            [hiccup.page :refer [include-css include-js]]
+            [hiccup.core]))
 
 (def bootstrap-css "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
 (def bootstrap-js "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
 (def base-head
-  [:head (map first (list (hiccup.page/include-css bootstrap-css)
-                          (hiccup.page/include-js bootstrap-js)))])
+  [:head (map first (list (include-css bootstrap-css)
+                          (include-js bootstrap-js)))])
 
 (defn html-footer [time]
   [:footer [:p (str "Generate at: " time)]])
